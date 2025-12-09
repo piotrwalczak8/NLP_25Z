@@ -1,0 +1,37 @@
+{
+  "dataset": {
+    "path": "Tweets.csv",
+    "text_col": "text",
+    "label_col": "airline_sentiment",
+    "label_mapping": {
+      "positive": 2,
+      "neutral": 1,
+      "negative": 0
+    }
+  },
+
+  "general": {
+    "test_size": 0.2,
+    "random_state": 42
+  },
+
+  "svm": {
+    "max_features": 30000,
+    "ngram_range": [1, 2],
+    "C": 1.0
+  },
+
+  "bert": {
+    "model_name": "bert-base-multilingual-cased",
+    "epochs": 1,
+    "batch_size": 8,
+    "max_length": 128,
+    "learning_rate": 2e-5
+  },
+
+  "llama": {
+    "model_name": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+    "sample_size": 20,
+    "max_new_tokens": 20
+  }
+}
