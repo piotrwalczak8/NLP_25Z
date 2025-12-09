@@ -18,7 +18,7 @@ lub wpisać w konsoli python project.py --config configIMBD.json
 8. na koniec uruchomić program
     python project.py
 
-
+Jak po uruchomieniu się przyblokuje to wpisz '3'
 
 linki do datasetów (pamiętać że jak się je pobierze, by były w tym samym folderze co projekt):
 https://www.kaggle.com/code/lakshmi25npathi/sentiment-analysis-of-imdb-movie-reviews/notebook?fbclid=IwY2xjawOldPJleHRuA2FlbQIxMABicmlkETBsREhtMTBIa3lQNnpZUG1rc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHqZqYiA_etETDHHTBtoW2H_Kt9iIJrusDC0OlqX4P_LPE0pYQnpOSOmmeVhJ_aem_4qg1KCPaxZIzs9R-EYUsuQ
