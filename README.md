@@ -20,7 +20,7 @@ lub wpisać w konsoli python project.py --config configIMBD.json
 
 
 
-linki do zbiorów (pamiętać że jak się je pobierze, by były w tym samym folderze co projekt):
+linki do datasetów (pamiętać że jak się je pobierze, by były w tym samym folderze co projekt):
 https://www.kaggle.com/code/lakshmi25npathi/sentiment-analysis-of-imdb-movie-reviews/notebook?fbclid=IwY2xjawOldPJleHRuA2FlbQIxMABicmlkETBsREhtMTBIa3lQNnpZUG1rc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHqZqYiA_etETDHHTBtoW2H_Kt9iIJrusDC0OlqX4P_LPE0pYQnpOSOmmeVhJ_aem_4qg1KCPaxZIzs9R-EYUsuQ
 https://www.kaggle.com/datasets/crowdflower/twitter-airline-sentiment?select=Tweets.csv&fbclid=IwY2xjawOldOlleHRuA2FlbQIxMABicmlkETBsREhtMTBIa3lQNnpZUG1rc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHu4smGjewcCKKP3p8Oq_lBo7j_85OyF4jDTp7In7IBYsLj3Qs-jp91B_rsWN_aem_85qKlxeb_M-8wbE54mLg9g
 
