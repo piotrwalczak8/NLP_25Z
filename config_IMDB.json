@@ -1,4 +1,4 @@
-{
+ {
   "dataset": {
     "path": "IMDB Dataset.csv",
     "text_col": "review",
