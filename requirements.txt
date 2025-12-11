@@ -1,9 +1,0 @@
-pandas
-numpy
-scikit-learn
-transformers>=4.40.0,<5.0.0
-datasets
-torch
-accelerate
-sentencepiece
-matplotlib
