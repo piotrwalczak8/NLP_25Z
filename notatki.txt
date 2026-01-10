@@ -3,4 +3,15 @@ odpalanie (np. z danymi z tweetów):
     python -m src.cli --only bert --config config/config_Tweet.json
     python -m src.cli --only svm --config config/config_Tweet.json
 
+
+Odpalanie dla Tweets_DE
+# LLAMA
+python -m src.cli --only llama --config config/config_Tweet_DE.json
+
+# BERT
+python -m src.cli --only bert --config config/config_Tweet_DE.json
+
+# SVM
+python -m src.cli --only svm --config config/config_Tweet_DE.json
+
 dla llama trzeba dopasywywać _parse_output w zależności czy zbiór z którego korzystamy ma 2 czy 3 klasy.
