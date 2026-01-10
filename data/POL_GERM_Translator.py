@@ -6,7 +6,7 @@ from tqdm import tqdm
 tqdm.pandas()
 
 # Wczytanie oryginalnego CSV
-df = pd.read_csv("tweets.csv")
+df = pd.read_csv("tweets.csv")  # <- podaj swoją ścieżkę do pliku
 
 # Funkcja tłumaczenia
 def translate_to_german(text):
@@ -14,7 +14,7 @@ def translate_to_german(text):
         return GoogleTranslator(source='auto', target='de').translate(text)
     except Exception as e:
         print(f"Nie udało się przetłumaczyć: {text}\nBłąd: {e}")
-        return text 
+        return text  # w razie błędu zwróć oryginał
 
 # Tłumaczenie kolumny 'text'
 df['text_de'] = df['text'].progress_apply(translate_to_german)
