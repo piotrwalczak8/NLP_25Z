@@ -31,9 +31,36 @@
 
   "llama": {
     "model_name": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
-    "sample_size": 20,
-    "max_new_tokens": 20,
-    "batch_size": 8,
-    "device_map": "auto"
-  }
+    "sample_size": 100,
+    "max_new_tokens": 8,
+    "batch_size": 16,
+    "device_map": "auto",
+  "few_shot_examples": [
+    {
+      "text": "@VirginAmerica All of group E was told there was no more room in the bins. when I got on the plane, was room for at least 4 bags in my row!",
+      "label": "Negative"
+    },
+    {
+      "text": "@VirginAmerica Thanks for making my flight from LAX to JFK a nightmare by forcing me to check my carry on bag at the gate.",
+      "label": "Negative"
+    },
+    {
+      "text": "@united Agent in LAS letting 20 customers know they can't help them rebook delayed flight to DEN #unfriendlyskies",
+      "label": "Neutral"
+    },
+    {
+      "text": "@united flight arrives 30 minutes early, but then have we to wait for an hour for our bags.",
+      "label": "Neutral"
+    },
+    {
+      "text": "@VirginAmerica of course! I work for @VirginAtlantic and I'm obsessed with the entire Virgin family!!",
+      "label": "Positive"
+    },
+    {
+      "text": "@VirginAmerica just bought tix for ATX - Dallas route - thanks for adding that! Love yr airline &amp",
+      "label": "Positive"
+    }
+  ]
+
+}
 }

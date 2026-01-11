@@ -1,0 +1,39 @@
+===== Interpretacja wyników klasyfikacji sentymentu =====
+
+Label mapping:
+0 = Negative
+2 = Positive
+
+Support:
+- Negative (0): liczba przykładów testowych = 43
+- Positive (2): liczba przykładów testowych = 57
+
+Metrics:
+
+1) Precision (precyzja)
+- Spośród wszystkich przykładów oznaczonych jako dana klasa, ile faktycznie należy do tej klasy.
+- Negative: 0.91 → przewidziane jako Negative, 91% trafnych.
+- Positive: 0.79 → przewidziane jako Positive, 79% trafnych.
+
+2) Recall (czułość)
+- Spośród wszystkich prawdziwych przykładów danej klasy, ile model poprawnie wykrył.
+- Negative: 0.67 → model poprawnie wykrył 67% wszystkich negatywnych przykładów.
+- Positive: 0.95 → model poprawnie wykrył 95% wszystkich pozytywnych przykładów.
+
+3) F1-score
+- Harmoniczna średnia precision i recall.
+- Negative: 0.77, Positive: 0.86
+
+4) Accuracy (dokładność)
+- Wszystkie poprawne predykcje w stosunku do całego zbioru testowego.
+- Wartość: 0.83 → 83 na 100 przykładów poprawnie sklasyfikowane.
+
+5) Macro vs Weighted avg
+- Macro: średnia po klasach bez uwzględniania liczebności.
+- Weighted: średnia ważona liczebnością klas (ważniejsza klasa z większym support).
+
+Wnioski:
+- Model lepiej radzi sobie z pozytywnymi recenzjami (wysoki recall 0.95).
+- Negatywne przykłady czasami są pomijane (recall 0.67), ale gdy model je oznacza jako Negative, jest bardzo precyzyjny (precision 0.91).
+- Ogólnie wyniki są dobre jak na TinyLLaMA zero-shot na 2-klasowym zadaniu (accuracy 0.83, F1 ~0.83).
+

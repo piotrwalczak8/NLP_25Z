@@ -4,7 +4,7 @@
     "text_col": "review",
     "label_col": "sentiment",
     "label_mapping": {
-      "positive": 1,
+      "positive": 2,
       "negative": 0
     }
   },
@@ -30,9 +30,29 @@
 
   "llama": {
     "model_name": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
-    "sample_size": 20,
-    "max_new_tokens": 20,
-    "batch_size": 8,
-    "device_map": "auto"
-  }
+    "sample_size": 100,
+    "max_new_tokens": 8,
+    "batch_size": 16,
+    "device_map": "auto",
+    "few_shot_examples": [
+      {
+        "text": "This movie was absolutely amazing! The plot was engaging and the actors were fantastic.",
+        "label": "Positive"
+      },
+      {
+        "text": "I loved this film. Every scene was well done and it kept me hooked until the end.",
+        "label": "Positive"
+      },
+      {
+        "text": "Terrible movie. The story made no sense and the acting was horrible.",
+        "label": "Negative"
+      },
+      {
+        "text": "I really disliked this film. It was boring and way too long.",
+        "label": "Negative"
+      }
+    ]
+
+}
+
 }

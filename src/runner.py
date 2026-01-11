@@ -68,10 +68,17 @@ def run(config_path: str, opts: dict = None):
     llama_res = None
     if only in ["llama", "all"]:
         llama_cfg = cfg["llama"]
+        # konwersja z dictów na listę krotek (text, label)
+        few_shot = [
+            (ex["text"], ex["label"])
+            for ex in llama_cfg.get("few_shot_examples", [])
+        ]
+        
         llm = LlamaZeroShot(model_name=llama_cfg["model_name"],
                             max_new_tokens=llama_cfg["max_new_tokens"],
                             batch_size=llama_cfg["batch_size"],
-                            device_map=llama_cfg["device_map"])
+                            device_map=llama_cfg["device_map"],
+                            few_shot_examples=few_shot)
         if dry_run:
             print("[LLaMA] Dry run: przygotowany model z configu", llama_cfg)
         else:
