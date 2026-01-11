@@ -3,10 +3,11 @@ from transformers import pipeline
 import numpy as np
 
 class LlamaZeroShot:
-    def __init__(self, model_name: str, max_new_tokens: int = 32, device_map="auto"):
+    def __init__(self, model_name: str, max_new_tokens: int, device_map: str, batch_size: int):
         self.model_name = model_name
         self.max_new_tokens = max_new_tokens
         self.device_map = device_map
+        self.batch_size = batch_size
         self.pipe = None
 
     def _init_pipe(self):
@@ -27,12 +28,12 @@ class LlamaZeroShot:
         out = self.pipe(prompt)[0]["generated_text"].lower()
         return self._parse_output(out)
 
-    def classify_batch(self, texts, batch_size=8):
+    def classify_batch(self, texts):
         self._init_pipe()
         preds = []
 
-        for i in range(0, len(texts), batch_size):
-            batch = texts[i:i+batch_size]
+        for i in range(0, len(texts), self.batch_size):
+            batch = texts[i:i + self.batch_size]
             prompts = [
                 "Classify the sentiment of the following text as positive, neutral, or negative.\n"
                 f"Text: {t}\nAnswer with exactly one of: Positive, Neutral, Negative.\nSentiment:"

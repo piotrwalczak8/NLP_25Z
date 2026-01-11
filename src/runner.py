@@ -69,13 +69,14 @@ def run(config_path: str, opts: dict = None):
     if only in ["llama", "all"]:
         llama_cfg = cfg["llama"]
         llm = LlamaZeroShot(model_name=llama_cfg["model_name"],
-                            max_new_tokens=llama_cfg["max_new_tokens"])
+                            max_new_tokens=llama_cfg["max_new_tokens"],
+                            batch_size=llama_cfg["batch_size"],
+                            device_map=llama_cfg["device_map"])
         if dry_run:
             print("[LLaMA] Dry run: przygotowany model z configu", llama_cfg)
         else:
             sample = X_test.sample(llama_cfg["sample_size"], random_state=42)
-            preds_llama = llm.classify_batch(sample.tolist(),
-                                             batch_size=llama_cfg.get("batch_size", 4))
+            preds_llama = llm.classify_batch(sample.tolist(),)
             print("\n===== WYNIKI LLaMA =====")
             print_classification_report(y_test.loc[sample.index], preds_llama)
             llama_res = accuracy(y_test.loc[sample.index], preds_llama)
