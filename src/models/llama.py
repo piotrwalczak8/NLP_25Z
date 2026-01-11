@@ -4,7 +4,7 @@ import numpy as np
 import re
 
 class LlamaZeroShot:
-    def __init__(self, model_name: str, max_new_tokens: int, device_map: str, batch_size: int, few_shot_examples=None):
+    def __init__(self, model_name: str, max_new_tokens: int, device_map: str, batch_size: int, few_shot_examples=None, classes=None):
         """
         model_name: nazwa modelu LLaMA
         max_new_tokens: maksymalna liczba tokenów do wygenerowania
@@ -18,6 +18,8 @@ class LlamaZeroShot:
         self.batch_size = batch_size
         self.pipe = None
         self.few_shot_examples = few_shot_examples or []
+        self.classes = classes or ["Positive", "Negative", "Neutral"]
+
 
     def _init_pipe(self):
         if self.pipe is None:
@@ -33,9 +35,11 @@ class LlamaZeroShot:
         Buduje prompt dla pojedynczego tekstu z opcjonalnymi przykładami few-shot
         Zoptymalizowany pod TinyLLaMA (krótki, restrykcyjny, bez gadania)
         """
-
+        class_list = ", ".join(self.classes)
         prompt = (
-            "Classify the following text as exactly one of: Positive, Negative."
+                f"Classify the sentiment of the following text.\n"
+                f"Choose exactly ONE label from: {class_list}.\n"
+                f"Respond with ONLY the label name.\n\n"
 
         )
 
@@ -76,20 +80,21 @@ class LlamaZeroShot:
 
         return preds
 
-    @staticmethod
-    def _parse_output(out: str) -> int:
-        """
-        Parsuje TYLKO ostatnią odpowiedź modelu
-        """
-        # weź ostatnie wystąpienie "sentiment:"
-        matches = re.findall(r"(positive|negative)", out, re.IGNORECASE)
 
-        if not matches:
-            return 0  # fallback: negative
+    def _parse_output(self, out: str) -> int:
+        out = out.lower()
 
-        label = matches[-1].lower()
-        if label == "positive":
-            return 2
-        #if label == "neutral":
-        #    return 1
-        return 0
+        # bierzemy TYLKO to, co model wygenerował po ostatnim "label:"
+        if "label:" in out:
+            out = out.split("label:")[-1]
+
+        out = out.strip()
+
+        for i, c in enumerate(self.classes):
+            if out.startswith(c.lower()):
+                return i
+
+        return -1
+
+
+

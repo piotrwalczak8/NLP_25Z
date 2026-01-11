@@ -4,7 +4,7 @@
     "text_col": "review",
     "label_col": "sentiment",
     "label_mapping": {
-      "positive": 2,
+      "positive": 1,
       "negative": 0
     }
   },
@@ -34,6 +34,7 @@
     "max_new_tokens": 8,
     "batch_size": 16,
     "device_map": "auto",
+    "classes": ["Negative", "Positive"],
     "few_shot_examples": [
       {
         "text": "This movie was absolutely amazing! The plot was engaging and the actors were fantastic.",

@@ -78,7 +78,9 @@ def run(config_path: str, opts: dict = None):
                             max_new_tokens=llama_cfg["max_new_tokens"],
                             batch_size=llama_cfg["batch_size"],
                             device_map=llama_cfg["device_map"],
-                            few_shot_examples=few_shot)
+                            few_shot_examples=few_shot,
+                            classes=llama_cfg.get("classes")
+                            )
         if dry_run:
             print("[LLaMA] Dry run: przygotowany model z configu", llama_cfg)
         else:

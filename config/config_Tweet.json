@@ -35,6 +35,7 @@
     "max_new_tokens": 8,
     "batch_size": 16,
     "device_map": "auto",
+    "classes": ["Negative", "Neutral", "Positive"],
   "few_shot_examples": [
     {
       "text": "@VirginAmerica All of group E was told there was no more room in the bins. when I got on the plane, was room for at least 4 bags in my row!",
