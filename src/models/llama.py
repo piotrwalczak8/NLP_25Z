@@ -5,13 +5,7 @@ import re
 
 class LlamaZeroShot:
     def __init__(self, model_name: str, max_new_tokens: int, device_map: str, batch_size: int, few_shot_examples=None, classes=None):
-        """
-        model_name: nazwa modelu LLaMA
-        max_new_tokens: maksymalna liczba tokenów do wygenerowania
-        device_map: "auto" lub konkretne urządzenie np. "cuda:0"
-        batch_size: liczba tekstów przetwarzanych jednocześnie
-        few_shot_examples: lista przykładowych tekstów z etykietami, np. [(tekst, etykieta), ...]
-        """
+
         self.model_name = model_name
         self.max_new_tokens = max_new_tokens
         self.device_map = device_map
@@ -40,7 +34,6 @@ class LlamaZeroShot:
                 f"Classify the sentiment of the following text.\n"
                 f"Choose exactly ONE label from: {class_list}.\n"
                 f"Respond with ONLY the label name.\n\n"
-
         )
 
         if self.few_shot_examples:

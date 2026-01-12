@@ -31,9 +31,37 @@
 
   "llama": {
     "model_name": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
-    "sample_size": 20,
-    "max_new_tokens": 20,
-    "batch_size": 8,
-    "device_map": "auto"
+    "sample_size": null,
+    "max_new_tokens": 8,
+    "batch_size": 16,
+    "device_map": "auto",
+    "classes": ["Negative", "Neutral", "Positive"],
+    "few_shot_examples": [
+    {
+      "text": "@VirginAmerica Der gesamten Gruppe E wurde gesagt, dass kein Platz mehr in den Gepäckfächern sei. Als ich ins Flugzeug kam, war in meiner Reihe Platz für mindestens 4 Taschen!",
+      "label": "Negative"
+    },
+    {
+      "text": "@VirginAmerica Danke, dass ihr meinen Flug von LAX nach JFK zu einem Albtraum gemacht habt, indem ihr mich gezwungen habt, mein Handgepäck am Gate aufzugeben.",
+      "label": "Negative"
+    },
+    {
+      "text": "@united Ein Mitarbeiter in LAS informiert 20 Kunden darüber, dass man ihnen bei der Umbuchung ihres verspäteten Fluges nach DEN nicht helfen kann. #unfriendlyskies",
+      "label": "Neutral"
+    },
+    {
+      "text": "@united Der Flug kommt 30 Minuten früher an, aber dann müssen wir eine Stunde auf unser Gepäck warten.",
+      "label": "Neutral"
+    },
+    {
+      "text": "@VirginAmerica Natürlich! Ich arbeite für @VirginAtlantic und bin begeistert von der gesamten Virgin-Familie!!",
+      "label": "Positive"
+    },
+    {
+      "text": "@VirginAmerica Habe gerade Tickets für die Strecke ATX–Dallas gekauft – danke, dass ihr sie hinzugefügt habt! Ich liebe eure Airline.",
+      "label": "Positive"
+    }
+  ]
+
   }
 }

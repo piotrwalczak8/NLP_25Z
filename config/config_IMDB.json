@@ -30,7 +30,7 @@
 
   "llama": {
     "model_name": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
-    "sample_size": 100,
+    "sample_size": null,
     "max_new_tokens": 8,
     "batch_size": 16,
     "device_map": "auto",

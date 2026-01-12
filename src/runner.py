@@ -84,14 +84,14 @@ def run(config_path: str, opts: dict = None):
         if dry_run:
             print("[LLaMA] Dry run: przygotowany model z configu", llama_cfg)
         else:
-            sample = X_test.sample(llama_cfg["sample_size"], random_state=42)
-            preds_llama = llm.classify_batch(sample.tolist(),)
-            print("\n===== WYNIKI LLaMA =====")
-            print_classification_report(y_test.loc[sample.index], preds_llama)
-            llama_res = accuracy(y_test.loc[sample.index], preds_llama)
+            if llama_cfg.get("sample_size"):
+                X_eval = X_test.sample(llama_cfg["sample_size"], random_state=42)
+            else:
+                X_eval = X_test
 
-    # ----------------- Podsumowanie -----------------
-    print("\n===== PODSUMOWANIE =====")
-    print("SVM:", svm_res)
-    print("BERT:", bert_res)
-    print("LLaMA:", llama_res)
+            preds_llama = llm.classify_batch(X_eval.tolist())
+
+            print("\n===== WYNIKI LLaMA =====")
+            print_classification_report(y_test.loc[X_eval.index], preds_llama)
+            llama_res = accuracy(y_test.loc[X_eval.index], preds_llama)
+
