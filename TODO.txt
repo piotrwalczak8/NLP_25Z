@@ -1,8 +1,8 @@
 OGOLNE TASKI DO ZROBIENIA
 - przepuścić kazdy algorytm przez kazdy dataset (dla roznej ilosci probek opcjonalnie) i opisac po krotce wyniki.
     - LLAMA - Piotrek
-    - BERT - Bartek
-    - SVM - Kasia
+    - BERT - Kasia
+    - SVM - Bartek
 
 
 CO ZAWRZEC W ROZDZIALACH KONKRETNIE
