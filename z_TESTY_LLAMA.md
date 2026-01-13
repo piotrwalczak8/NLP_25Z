@@ -36,7 +36,7 @@
 }
 }
 
-**WYNIKI 1 (tweet full)**
+**1. wyniki (tweet full)**
               precision    recall  f1-score   support
 
           -1       0.00      0.00      0.00         0
@@ -90,7 +90,7 @@ weighted avg       0.56      0.45      0.48      2928
 
   }
 
-**WYNIKI 2 (tweet DE):**
+**2. wyniki (tweet de full)**
 
                 precision    recall  f1-score   support
 
@@ -133,7 +133,7 @@ weighted avg       0.56      0.38      0.41      2928
 
 }
 
-**wyniki 3 (imdb)**
+**3. wyniki (imdb full)**
 
 
               precision    recall  f1-score   support

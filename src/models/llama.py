@@ -3,7 +3,7 @@ from transformers import pipeline
 import numpy as np
 import re
 
-class LlamaZeroShot:
+class LlamaModel:
     def __init__(self, model_name: str, max_new_tokens: int, device_map: str, batch_size: int, few_shot_examples=None, classes=None):
 
         self.model_name = model_name

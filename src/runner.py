@@ -3,7 +3,7 @@ from src.utils.config_utils import load_config
 from data.dataset import load_raw, prepare_data, to_hf_dataset
 from src.models.svm import SVMClassifier
 from src.models.bert import BertTrainer
-from src.models.llama import LlamaZeroShot
+from src.models.llama import LlamaModel
 from src.evaluation.metrics import print_classification_report, accuracy
 
 def run(config_path: str, opts: dict = None):
@@ -74,7 +74,7 @@ def run(config_path: str, opts: dict = None):
             for ex in llama_cfg.get("few_shot_examples", [])
         ]
         
-        llm = LlamaZeroShot(model_name=llama_cfg["model_name"],
+        llm = LlamaModel(model_name=llama_cfg["model_name"],
                             max_new_tokens=llama_cfg["max_new_tokens"],
                             batch_size=llama_cfg["batch_size"],
                             device_map=llama_cfg["device_map"],
