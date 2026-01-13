@@ -1,4 +1,3 @@
-# src/evaluation/metrics.py
 from sklearn.metrics import classification_report, accuracy_score
 
 def print_classification_report(y_true, y_pred):

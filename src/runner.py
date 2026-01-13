@@ -7,13 +7,7 @@ from src.models.llama import LlamaModel
 from src.evaluation.metrics import print_classification_report, accuracy
 
 def run(config_path: str, opts: dict = None):
-    """
-    Uruchamia eksperymenty sentymentu.
-    opts: słownik z opcjonalnymi parametrami:
-        - "only": uruchomić tylko wybrane modele ("svm", "bert", "llama", "all")
-        - "dry_run": jeśli True, nie trenuje modeli, tylko wypisuje plan
-        - "seed": opcjonalny seed dla reproducibility
-    """
+
     opts = opts or {}
     only = opts.get("only", "all")
     dry_run = opts.get("dry_run", False)

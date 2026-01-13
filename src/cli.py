@@ -1,4 +1,3 @@
-# src/cli.py
 import argparse
 from pathlib import Path
 from src.runner import run  
@@ -18,7 +17,6 @@ if __name__ == "__main__":
     cfg_path = Path(args.config)
     if not cfg_path.exists():
         raise FileNotFoundError(f"Config not found: {cfg_path}")
-    # opts przekazywane do runnera — runner może je zignorować jeśli nie obsługuje
     opts = {
         "only": args.only,
         "dry_run": args.dry_run,

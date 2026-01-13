@@ -25,10 +25,7 @@ class LlamaModel:
             )
 
     def _build_prompt(self, text: str):
-        """
-        Buduje prompt dla pojedynczego tekstu z opcjonalnymi przykładami few-shot
-        Zoptymalizowany pod TinyLLaMA (krótki, restrykcyjny, bez gadania)
-        """
+
         class_list = ", ".join(self.classes)
         prompt = (
                 f"Classify the sentiment of the following text.\n"
@@ -77,7 +74,6 @@ class LlamaModel:
     def _parse_output(self, out: str) -> int:
         out = out.lower()
 
-        # bierzemy TYLKO to, co model wygenerował po ostatnim "label:"
         if "label:" in out:
             out = out.split("label:")[-1]
 
